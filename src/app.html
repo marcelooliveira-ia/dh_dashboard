@@ -98,7 +98,7 @@ function groupedH(el,rows,labelKey,series,linesFn){
  const lg=document.createElement('div');lg.className='legend';
  series.forEach((s,i)=>{const sp=document.createElement('span');const sw=document.createElement('i');sw.style.background=SER[i];sp.append(sw,s.label);lg.appendChild(sp);});
  el.appendChild(lg);
- const W=Math.max(el.clientWidth,240),lw=Math.min(112,Math.round(W*0.34)),rw=series.some((s)=>s.fmt)?112:44,bh=14,sg=3,pad=18;
+ const W=Math.max(el.clientWidth,240),lw=Math.min(120,Math.round(W*0.4)),rw=series.some((s)=>s.fmt)?112:44,bh=14,sg=3,pad=18;
  const gh=series.length*bh+(series.length-1)*sg,rh=gh+pad,H=rows.length*rh;
  const max=d3.max(rows,(r)=>d3.max(series,(s)=>r[s.field]))||1;
  const x=d3.scaleLinear([0,max],[lw,W-rw]);
@@ -241,19 +241,19 @@ dash.draw('cpl',(el)=>{
  el.replaceChildren();el.classList.remove('dash-skeleton');
  const d=dash.data('plataformas');if(d.status!=='ok'){el.textContent='—';return;}
  const first=!played.has(el);played.add(el);
- const rows=d.data,W=Math.max(el.clientWidth,240),rh=46,lw=84,rw=76,H=rows.length*rh;
- const x=d3.scaleLinear([0,d3.max(rows,(r)=>r.cpl)||1],[lw,W-rw]);
+ const rows=d.data,W=Math.max(el.clientWidth,240),rh=58,rw=76,H=rows.length*rh;
+ const x=d3.scaleLinear([0,d3.max(rows,(r)=>r.cpl)||1],[0,W-rw]);
  const svg=d3.select(el).append('svg').attr('width','100%').attr('viewBox','0 0 '+W+' '+H).attr('role','img');
  const tp=tipper(el);
  rows.forEach((r,i)=>{
-  const y=i*rh+rh/2;
-  svg.append('text').attr('x',lw-8).attr('y',y+4).attr('text-anchor','end').attr('fill','var(--color-fg)').style('font-size','12px').text(r.plataforma);
-  if(r.cpl==null){svg.append('text').attr('x',lw).attr('y',y+4).attr('fill','var(--color-fg-muted)').style('font-size','11px').text('sem conversão rastreada');}
+  const y0=i*rh;
+  svg.append('text').attr('x',0).attr('y',y0+16).attr('fill','var(--color-fg)').style('font-size','12px').text(r.plataforma);
+  if(r.cpl==null){svg.append('text').attr('x',0).attr('y',y0+40).attr('fill','var(--color-fg-muted)').style('font-size','11px').text('sem conversão rastreada');}
   else{
-   svg.append('rect').attr('x',lw).attr('y',y-9).attr('width',Math.max(2,x(r.cpl)-lw)).attr('height',18).attr('rx',3).attr('fill',PC[r.plataforma]||SER[0]).attr('class',first?'bar':'b').style('--i',i);
-   svg.append('text').attr('x',x(r.cpl)+6).attr('y',y+4).attr('fill','var(--color-fg-muted)').attr('class',first?'lbl':null).style('--i',i).style('font-size','12px').text(brl(r.cpl));
+   svg.append('rect').attr('x',0).attr('y',y0+24).attr('width',Math.max(2,x(r.cpl))).attr('height',20).attr('rx',3).attr('fill',PC[r.plataforma]||SER[0]).attr('class',first?'bar':'b').style('--i',i);
+   svg.append('text').attr('x',x(r.cpl)+6).attr('y',y0+39).attr('fill','var(--color-fg-muted)').attr('class',first?'lbl':null).style('--i',i).style('font-size','12px').text(brl(r.cpl));
   }
-  svg.append('rect').attr('x',0).attr('y',i*rh).attr('width',W).attr('height',rh).attr('fill','transparent')
+  svg.append('rect').attr('x',0).attr('y',y0).attr('width',W).attr('height',rh).attr('fill','transparent')
    .on('mousemove',(e)=>tp.show(e,[r.plataforma,'Custo por lead: '+brl(r.cpl),'Investimento: '+brl(r.investimento),'Leads: '+int(r.leads)])).on('mouseleave',tp.hide);
  });
 });
