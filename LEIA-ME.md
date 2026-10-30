@@ -1,14 +1,13 @@
 # Painel de desempenho — DH Cortinas e Persianas
 
-**Status: em configuração.** O repositório já tem o molde (`src/`, `build.py`, `tests/`). Falta concluir a configuração do cliente.
+**Status: pronto (modo Meta Ads).** Cada linha de `campanhas.csv` é uma campanha (coluna `plataforma` guarda o nome da campanha). Sem verba combinada: o painel mostra projeção até o fim do mês.
+
+Conta do Meta com as campanhas: `147507224936430` (Anúncios DH Decorações). A conta `869046779279189` não tem campanhas.
 
 Link (depois de publicado): https://marcelooliveira-ia.github.io/dh_dashboard/
 
-## Pendências (ver `pendente` em `config.json`)
-- logo do cliente em `assets/` (versão clara para o cabeçalho escuro) e cores da marca
-- primeira pasta `data/AAAA-MM/` com os dados do mês (campanhas do Meta Ads)
-- adaptar o painel para Meta Ads: campanhas no lugar de plataformas, Instagram contra Facebook
-- ativar o GitHub Pages (Settings > Pages > main, /(root))
+## Pendências
+- ativar o GitHub Pages (Settings > Pages > main, /(root)), se ainda não estiver ativo
 
 ## Como gerar o relatório do mês
 Pedir no projeto do cliente: "gere o relatório do mês" (skill relatorio-mensal-cliente). Estrutura e comandos iguais aos do repositório `persianas_grajau_dashboard`.

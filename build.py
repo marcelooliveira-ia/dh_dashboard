@@ -50,9 +50,10 @@ def validar(cfg, dados, meta, mes, imprimir=True):
     for r in ped:
         if r['plataforma'] not in plats:
             erros.append(f'pedido para plataforma sem campanha: {r["plataforma"]}')
-    for p in plats:
-        if p not in [r['plataforma'] for r in ped]:
-            erros.append(f'plataforma sem verba combinada (pedido.csv): {p}')
+    if ped:
+        for p in plats:
+            if p not in [r['plataforma'] for r in ped]:
+                erros.append(f'plataforma sem verba combinada (pedido.csv): {p}')
     for r in conta:
         if r['plataforma'] not in plats:
             erros.append(f'leads_conta de plataforma sem campanha: {r["plataforma"]}')

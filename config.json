@@ -4,7 +4,7 @@
  "objetivo": "Conversas no WhatsApp",
  "regiao": "Zona Sul do Rio e Niterói",
  "plataformas_txt": "do Meta Ads (Facebook e Instagram)",
- "logo_cabecalho": "assets/LOGO-DO-CLIENTE.png",
+ "logo_cabecalho": "assets/dh-logo.png",
  "logo_rodape": "assets/logo-marcelo-oliveira.svg",
  "whatsapp_marcelo": "5521990800215",
  "cores": {
@@ -14,24 +14,31 @@
    "#3B3B38",
    "#913132"
   ],
-  "plataformas": {}
+  "plataformas": {
+   "Manutenção": "#913132",
+   "Tela Mosquiteiro": "#3B3B38"
+  }
  },
- "canais": {},
+ "canais": {
+  "Manutenção": "Facebook e Instagram · conversas no WhatsApp",
+  "Tela Mosquiteiro": "Facebook e Instagram · conversas no WhatsApp"
+ },
  "contas": {
   "meta": {
-   "act": "869046779279189"
+   "act": "147507224936430",
+   "business_id": "108537858874908",
+   "obs": "A conta 869046779279189 (DH Decorações E Persianas) não tem campanhas; as campanhas rodam em 147507224936430 (Anúncios DH Decorações)."
   },
   "google": {
    "cid": "259-652-0042"
   }
  },
  "modo": "meta",
- "pendente": [
-  "logo_cabecalho",
-  "campanhas"
- ],
+ "pendente": [],
  "como_ler": [
   "Lead é a conversa iniciada no WhatsApp a partir do anúncio, contada pelo Meta Ads.",
-  "Os valores são lidos do Gerenciador de Anúncios do Meta no mês de calendário; o dia da leitura é parcial."
+  "Os valores são lidos do Gerenciador de Anúncios do Meta no mês de calendário, do dia 1 até a data da leitura; o último dia é parcial.",
+  "A projeção até o fim do mês é uma estimativa simples pelo ritmo médio diário até agora e pode mudar.",
+  "Cliques são os cliques no link do anúncio."
  ]
 }

@@ -6,7 +6,7 @@
 .pg header h1{color:#fff;font-size:clamp(1.5rem,4vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin:0}
 .pg header .muted{color:#D6D2C9}
 .pg header .take{margin-top:1rem;padding-left:.9rem;border-left:3px solid var(--y);font-size:1.05rem;max-width:58ch;color:#fff}
-.pg .logo{display:block;height:4rem;width:auto;margin-bottom:1rem}
+.pg .logo{display:block;height:4rem;width:auto;margin-bottom:1rem;background:#fff;padding:.5rem .8rem;border-radius:.6rem;box-sizing:content-box;max-width:calc(100% - 1.6rem);object-fit:contain}
 .pg .chip{display:inline-flex;align-items:center;gap:.45rem;font-size:var(--cds-font-size-caption);background:color-mix(in srgb,var(--y) 16%,transparent);color:color-mix(in srgb,var(--y) 60%,#fff);border:1px solid color-mix(in srgb,var(--y) 40%,transparent);padding:.15rem .75rem;border-radius:999px;margin-bottom:.7rem}
 .pg .chip i{width:.45rem;height:.45rem;border-radius:50%;background:var(--y)}
 .pg h2{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:2rem 0 .15rem;display:flex;align-items:center;gap:.6rem}
@@ -115,7 +115,7 @@
 <header>
 <img class='logo' src='{{LOGO_CAB}}' alt='{{CLIENTE}}'>
 <span class='chip'><i></i>{{MES_EXTENSO}}</span>
-<h1>Desempenho por plataforma</h1>
+<h1>Desempenho dos anúncios</h1>
 <p class='muted'>{{INTERVALO}} Dados lidos dos painéis {{PLATAFORMAS_TXT}} em {{LIDO_EM}}.</p>
 <p class='take' data-draw='take' data-source='fatias'>—</p>
 </header>
@@ -123,48 +123,47 @@
 <dl class='facts'>
 <div class='fact'><dt>Objetivo</dt><dd>{{OBJETIVO}}</dd></div>
 <div class='fact'><dt>Período</dt><dd>{{MES_EXTENSO}}</dd></div>
-<div class='fact'><dt>Verba combinada<button class='pginfo' type='button' data-tip='Valor combinado com você para investir em anúncios neste mês.' aria-label='Valor combinado com você para investir em anúncios neste mês.'>i</button></dt><dd data-draw='kpi' data-source='resumo' data-field='pedido_total' data-row='0' data-fmt='brl'>—</dd></div>
 <div class='fact'><dt>Investido até agora</dt><dd data-draw='kpi' data-source='resumo' data-field='investido_total' data-row='0' data-fmt='brl'>—</dd></div>
-<div class='fact'><dt>Uso da verba<button class='pginfo' type='button' data-tip='Quanto da verba combinada já foi gasto até agora.' aria-label='Quanto da verba combinada já foi gasto até agora.'>i</button></dt><dd data-draw='kpi' data-source='resumo' data-field='uso' data-row='0' data-fmt='pct'>—</dd></div>
+<div class='fact'><dt>Projeção até o fim do mês<button class='pginfo' type='button' data-tip='Estimativa simples: o investimento médio por dia até agora multiplicado pelos dias do mês. Pode mudar.' aria-label='Estimativa simples: o investimento médio por dia até agora multiplicado pelos dias do mês. Pode mudar.'>i</button></dt><dd data-draw='kpi' data-source='resumo' data-field='projecao' data-row='0' data-fmt='brl'>—</dd></div>
 <div class='fact'><dt>Região atendida</dt><dd>{{REGIAO}}</dd></div>
 </dl>
 
 <div class='grid'>
-<div class='card kpi'><span class='ico'><svg viewBox='0 0 24 24'><circle cx='12' cy='12' r='9'/><path d='M12 7v10M9.5 9.5h4a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3h4'/></svg></span><div class='bd'><span class='sub'>Investimento total<button class='pginfo' type='button' data-tip='Soma do dinheiro gasto nos anúncios de todas as plataformas neste mês.' aria-label='Soma do dinheiro gasto nos anúncios de todas as plataformas neste mês.'>i</button></span><b data-draw='kpi' data-source='totais' data-field='investimento' data-row='0' data-fmt='brl'>—</b><div class='breakdown' data-draw='invlist' data-source='plataformas'></div></div></div>
+<div class='card kpi'><span class='ico'><svg viewBox='0 0 24 24'><circle cx='12' cy='12' r='9'/><path d='M12 7v10M9.5 9.5h4a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3h4'/></svg></span><div class='bd'><span class='sub'>Investimento total<button class='pginfo' type='button' data-tip='Soma do dinheiro gasto nos anúncios de todas as campanhas neste mês.' aria-label='Soma do dinheiro gasto nos anúncios de todas as campanhas neste mês.'>i</button></span><b data-draw='kpi' data-source='totais' data-field='investimento' data-row='0' data-fmt='brl'>—</b><div class='breakdown' data-draw='invlist' data-source='plataformas'></div></div></div>
 <div class='card kpi'><span class='ico'><svg viewBox='0 0 24 24'><path d='M4 5h16v11H9l-5 4z'/></svg></span><div class='bd'><span class='sub'>Leads gerados<button class='pginfo' type='button' data-tip='Lead é uma pessoa interessada que entrou em contato pelo WhatsApp depois de ver o anúncio: um possível cliente pedindo informações ou orçamento.' aria-label='Lead é uma pessoa interessada que entrou em contato pelo WhatsApp depois de ver o anúncio: um possível cliente pedindo informações ou orçamento.'>i</button></span><b data-draw='kpi' data-source='totais' data-field='leads' data-row='0' data-fmt='int'>—</b><span class='sub2'>conversas no WhatsApp</span></div></div>
-<div class='card kpi'><span class='ico'><svg viewBox='0 0 24 24'><circle cx='12' cy='12' r='9'/><circle cx='12' cy='12' r='5'/><circle cx='12' cy='12' r='1.2'/></svg></span><div class='bd'><span class='sub'>Custo médio por lead<button class='pginfo' type='button' data-tip='Quanto foi investido, em média, para cada pessoa que chamou no WhatsApp, somando todas as plataformas. Quanto menor, mais barato saiu cada contato.' aria-label='Quanto foi investido, em média, para cada pessoa que chamou no WhatsApp, somando todas as plataformas. Quanto menor, mais barato saiu cada contato.'>i</button></span><b data-draw='kpi' data-source='totais' data-field='cpl' data-row='0' data-fmt='brl'>—</b><span class='sub2'>todas as plataformas</span></div></div>
-<div class='card kpi'><span class='ico'><svg viewBox='0 0 24 24'><path d='M8 4h8v5a4 4 0 0 1-8 0zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M9 20h6'/></svg></span><div class='bd'><span class='sub'>Menor custo por lead<button class='pginfo pr' type='button' data-tip='A plataforma em que cada contato saiu mais barato.' aria-label='A plataforma em que cada contato saiu mais barato.'>i</button></span><b data-draw='kpi' data-source='totais' data-field='melhor_cpl' data-row='0' data-fmt='brl'>—</b><span class='sub2' data-draw='kpi' data-source='totais' data-field='melhor_nome' data-row='0' data-fmt='text'>—</span></div></div>
+<div class='card kpi'><span class='ico'><svg viewBox='0 0 24 24'><circle cx='12' cy='12' r='9'/><circle cx='12' cy='12' r='5'/><circle cx='12' cy='12' r='1.2'/></svg></span><div class='bd'><span class='sub'>Custo médio por lead<button class='pginfo' type='button' data-tip='Quanto foi investido, em média, para cada pessoa que chamou no WhatsApp, somando todas as campanhas. Quanto menor, mais barato saiu cada contato.' aria-label='Quanto foi investido, em média, para cada pessoa que chamou no WhatsApp, somando todas as campanhas. Quanto menor, mais barato saiu cada contato.'>i</button></span><b data-draw='kpi' data-source='totais' data-field='cpl' data-row='0' data-fmt='brl'>—</b><span class='sub2'>todas as campanhas</span></div></div>
+<div class='card kpi'><span class='ico'><svg viewBox='0 0 24 24'><path d='M8 4h8v5a4 4 0 0 1-8 0zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M9 20h6'/></svg></span><div class='bd'><span class='sub'>Menor custo por lead<button class='pginfo pr' type='button' data-tip='A campanha em que cada contato saiu mais barato.' aria-label='A campanha em que cada contato saiu mais barato.'>i</button></span><b data-draw='kpi' data-source='totais' data-field='melhor_cpl' data-row='0' data-fmt='brl'>—</b><span class='sub2' data-draw='kpi' data-source='totais' data-field='melhor_nome' data-row='0' data-fmt='text'>—</span></div></div>
 </div>
 
-<h2>Plataformas lado a lado<button class='pginfo' type='button' data-tip='O anel mostra quanto da verba combinada cada plataforma já gastou. Quanto mais cheio, mais da verba foi usada.' aria-label='O anel mostra quanto da verba combinada cada plataforma já gastou. Quanto mais cheio, mais da verba foi usada.'>i</button></h2>
-<p class='muted'>O anel mostra quanto da verba combinada cada plataforma já usou.</p>
+<h2>Campanhas lado a lado<button class='pginfo' type='button' data-tip='O anel mostra quanto do investimento total do mês foi para cada campanha.' aria-label='O anel mostra quanto do investimento total do mês foi para cada campanha.'>i</button></h2>
+<p class='muted'>O anel mostra a parte do investimento do mês que foi para cada campanha.</p>
 <div class='pcards' data-draw='cards' data-source='cards'></div>
 
 <h2>Para onde foi o dinheiro e de onde vieram os leads</h2>
 <div class='grid wide'>
-<div class='card'><h3>Investimento por plataforma<button class='pginfo' type='button' data-tip='Mostra para qual plataforma foi cada parte do dinheiro investido.' aria-label='Mostra para qual plataforma foi cada parte do dinheiro investido.'>i</button></h3><p class='muted'>Valor investido em {{MES_NOME}}.</p><div class='chart dash-skeleton' data-draw='donutInv' data-source='fatias totais'></div></div>
-<div class='card'><h3>Leads por plataforma<button class='pginfo pr' type='button' data-tip='Mostra de qual plataforma vieram os contatos. O ideal é que as plataformas que trazem mais contatos recebam mais verba.' aria-label='Mostra de qual plataforma vieram os contatos. O ideal é que as plataformas que trazem mais contatos recebam mais verba.'>i</button></h3><p class='muted'>Conversas iniciadas no WhatsApp.</p><div class='chart dash-skeleton' data-draw='donutLeads' data-source='fatias totais'></div></div>
+<div class='card'><h3>Investimento por campanha<button class='pginfo' type='button' data-tip='Mostra para qual campanha foi cada parte do dinheiro investido.' aria-label='Mostra para qual campanha foi cada parte do dinheiro investido.'>i</button></h3><p class='muted'>Valor investido em {{MES_NOME}}.</p><div class='chart dash-skeleton' data-draw='donutInv' data-source='fatias totais'></div></div>
+<div class='card'><h3>Leads por campanha<button class='pginfo pr' type='button' data-tip='Mostra de qual campanha vieram os contatos. O ideal é que as campanhas que trazem mais contatos recebam mais verba.' aria-label='Mostra de qual campanha vieram os contatos. O ideal é que as campanhas que trazem mais contatos recebam mais verba.'>i</button></h3><p class='muted'>Conversas iniciadas no WhatsApp.</p><div class='chart dash-skeleton' data-draw='donutLeads' data-source='fatias totais'></div></div>
 </div>
 
-<h2>Custo por lead e ritmo da verba</h2>
+<h2>Custo por lead e projeção do mês</h2>
 <div class='grid wide'>
-<div class='card'><h3>Custo por lead<button class='pginfo' type='button' data-tip='Quanto foi investido, em média, para cada pessoa que chamou no WhatsApp. Quanto menor, mais barato saiu cada contato.' aria-label='Quanto foi investido, em média, para cada pessoa que chamou no WhatsApp. Quanto menor, mais barato saiu cada contato.'>i</button></h3><p class='muted'>Investimento dividido pelos leads de cada plataforma.</p><div class='chart dash-skeleton' data-draw='cpl' data-source='plataformas'></div></div>
-<div class='card'><h3>Verba combinada × investido<button class='pginfo pr' type='button' data-tip='A barra mostra quanto da verba já foi gasto. A linha dourada marca onde o gasto estaria se a verba fosse distribuída por igual ao longo dos dias do mês.' aria-label='A barra mostra quanto da verba já foi gasto. A linha dourada marca onde o gasto estaria se a verba fosse distribuída por igual ao longo dos dias do mês.'>i</button></h3><p class='muted'>A linha dourada marca onde o investimento estaria se acompanhasse os dias do mês.</p><div class='pace' data-draw='ritmo' data-source='ritmo'></div></div>
+<div class='card'><h3>Custo por lead<button class='pginfo' type='button' data-tip='Quanto foi investido, em média, para cada pessoa que chamou no WhatsApp. Quanto menor, mais barato saiu cada contato.' aria-label='Quanto foi investido, em média, para cada pessoa que chamou no WhatsApp. Quanto menor, mais barato saiu cada contato.'>i</button></h3><p class='muted'>Investimento dividido pelos leads de cada campanha.</p><div class='chart dash-skeleton' data-draw='cpl' data-source='plataformas'></div></div>
+<div class='card'><h3>Projeção até o fim do mês<button class='pginfo pr' type='button' data-tip='Estimativa pelo ritmo médio diário até agora. A barra mostra quanto do mês já passou.' aria-label='Estimativa pelo ritmo médio diário até agora. A barra mostra quanto do mês já passou.'>i</button></h3><p class='muted'>Se o ritmo atual continuar até o último dia do mês.</p><div class='pace' data-draw='ritmo' data-source='ritmo'></div></div>
 </div>
 
-<h2>Resumo por plataforma</h2>
+<h2>Resumo por campanha</h2>
 <div class='card' style='margin-top:var(--cds-gap-md)'>
-<p class='muted'>O Google Ads soma as campanhas de Pesquisa e YouTube.</p>
+<p class='muted'>Anúncios no Facebook e no Instagram, com objetivo de conversas no WhatsApp.</p>
 <div class='scroll'><table data-source='plataformas' data-row-key='plataforma'>
-<thead><tr><th data-field='plataforma'>Plataforma</th><th class='n' data-field='investimento'>Investimento</th><th class='n' data-field='impressoes'>Impressões</th><th class='n' data-field='leads'>Leads</th><th class='n' data-field='cpl'>Custo por lead</th></tr></thead>
+<thead><tr><th data-field='plataforma'>Campanha</th><th class='n' data-field='investimento'>Investimento</th><th class='n' data-field='impressoes'>Impressões</th><th class='n' data-field='interacoes'>Cliques no link</th><th class='n' data-field='leads'>Leads</th><th class='n' data-field='cpl'>Custo por lead</th></tr></thead>
 <tbody data-draw='tabela'></tbody>
 </table></div>
 </div>
 
-<h2>Distribuição da verba: hoje × sugestão</h2>
+<h2>Distribuição do investimento: hoje × sugestão</h2>
 <p class='muted'>A sugestão é uma hipótese de trabalho para o próximo ciclo e deve ser validada com testes.</p>
 <div class='grid wide'>
-<div class='card'><h3>Participação no investimento<button class='pginfo' type='button' data-tip='Compara como a verba está dividida hoje com a divisão que sugerimos para o próximo ciclo.' aria-label='Compara como a verba está dividida hoje com a divisão que sugerimos para o próximo ciclo.'>i</button></h3><div class='chart dash-skeleton' data-draw='partic' data-source='participacao'></div></div>
+<div class='card'><h3>Participação no investimento<button class='pginfo' type='button' data-tip='Compara como o investimento está dividido hoje com a divisão que sugerimos para o próximo ciclo.' aria-label='Compara como o investimento está dividido hoje com a divisão que sugerimos para o próximo ciclo.'>i</button></h3><div class='chart dash-skeleton' data-draw='partic' data-source='participacao'></div></div>
 <div class='card'><h3>Papel de cada frente</h3><ol data-draw='plano' data-source='sugestao'></ol></div>
 </div>
 
