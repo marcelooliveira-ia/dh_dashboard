@@ -1,0 +1,37 @@
+{
+ "cliente": "DH Cortinas e Persianas",
+ "slug": "dh",
+ "objetivo": "Conversas no WhatsApp",
+ "regiao": "Zona Sul do Rio e Niterói",
+ "plataformas_txt": "do Meta Ads (Facebook e Instagram)",
+ "logo_cabecalho": "assets/LOGO-DO-CLIENTE.png",
+ "logo_rodape": "assets/logo-marcelo-oliveira.svg",
+ "whatsapp_marcelo": "5521990800215",
+ "cores": {
+  "destaque": "#FFCC29",
+  "dourado": "#913132",
+  "series": [
+   "#3B3B38",
+   "#913132"
+  ],
+  "plataformas": {}
+ },
+ "canais": {},
+ "contas": {
+  "meta": {
+   "act": "869046779279189"
+  },
+  "google": {
+   "cid": "259-652-0042"
+  }
+ },
+ "modo": "meta",
+ "pendente": [
+  "logo_cabecalho",
+  "campanhas"
+ ],
+ "como_ler": [
+  "Lead é a conversa iniciada no WhatsApp a partir do anúncio, contada pelo Meta Ads.",
+  "Os valores são lidos do Gerenciador de Anúncios do Meta no mês de calendário; o dia da leitura é parcial."
+ ]
+}
